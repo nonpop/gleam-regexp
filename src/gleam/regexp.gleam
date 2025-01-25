@@ -6,6 +6,7 @@
 
 import gleam/option.{type Option}
 
+@external(go, "", "Regexp_t")
 pub type Regexp
 
 /// The details about a particular match:
@@ -62,6 +63,7 @@ pub fn compile(
 
 @external(erlang, "gleam_regexp_ffi", "compile")
 @external(javascript, "../gleam_regexp_ffi.mjs", "compile")
+@external(go, "", "doCompile")
 fn do_compile(
   pattern: String,
   with with: Options,
@@ -115,6 +117,7 @@ pub fn check(with regexp: Regexp, content string: String) -> Bool {
 
 @external(erlang, "gleam_regexp_ffi", "check")
 @external(javascript, "../gleam_regexp_ffi.mjs", "check")
+@external(go, "", "doCheck")
 fn do_check(regexp: Regexp, string: String) -> Bool
 
 /// Splits a string.
@@ -133,6 +136,7 @@ pub fn split(with regexp: Regexp, content string: String) -> List(String) {
 
 @external(erlang, "gleam_regexp_ffi", "split")
 @external(javascript, "../gleam_regexp_ffi.mjs", "split")
+@external(go, "", "doSplit")
 fn do_split(regexp: Regexp, string: String) -> List(String)
 
 /// Collects all matches of the regular expression.
@@ -193,6 +197,7 @@ pub fn scan(with regexp: Regexp, content string: String) -> List(Match) {
 
 @external(erlang, "gleam_regexp_ffi", "scan")
 @external(javascript, "../gleam_regexp_ffi.mjs", "scan")
+@external(go, "", "doScan")
 fn do_scan(regexp: Regexp, string: String) -> List(Match)
 
 /// Creates a new `String` by replacing all substrings that match the regular
@@ -213,6 +218,7 @@ fn do_scan(regexp: Regexp, string: String) -> List(Match)
 /// ```
 @external(erlang, "gleam_regexp_ffi", "replace")
 @external(javascript, "../gleam_regexp_ffi.mjs", "replace")
+@external(go, "", "Replace")
 pub fn replace(
   each pattern: Regexp,
   in string: String,
